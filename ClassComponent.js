@@ -12,6 +12,29 @@ class ClassComponent extends React.Component {
     };
   }
   
+  componentDidMount(){
+  /*
+    Bir bileşen, DOM ağacına eklendikten hemen sonra componentDidMount() çalıştırılır. 
+    DOM düğümleri ile ilişkili atama işlemleri bu fonksiyon içerisinde yapılmalıdır. 
+    Bu nedenle eğer verilerimizi uzak bir API’den yüklememiz gerekiyorsa, ağ isteğini bu fonksiyonda başlatabiliriz.
+  */
+  }
+  
+ // Bileşen güncellendiğinde ve DOM üzerinde yapmak istediğimiz işleri gerçekleştirmek için bu metodu kullanırız.
+ componentDidUpdate(prevProps) {
+  // Genel kullanım (prop değerlerini karşılaştırmayı unutmayınız!):
+  if (this.props.userID !== prevProps.userID) {
+    this.fetchData(this.props.userID);
+  }
+}
+  
+  componentWillUnmount(){
+    /*
+      componentDidMount()‘ta yapılan; zamanlayıcı fonksiyonların geçersiz kılınması, 
+      ağ isteklerinin iptal edilmesi, veya herhangi bir abonelik metodunun temizlenmesi gibi işlemleri bu metotta gerçekleştirebiliriz.
+    */
+  }
+
   sayiArttir = () => {
     this.setState({
       arttir: this.state.arttir + 1
