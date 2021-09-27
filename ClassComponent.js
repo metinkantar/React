@@ -1,12 +1,17 @@
 import React from "react";
 
 class ClassComponent extends React.Component {
+  // yeni yöntem Costructor 
+  // state = {}
+  
+  // eski yöntem Costructor 
   constructor(props) {
     super(props);
     this.state = {
       arttir: 0
     };
   }
+  
   sayiArttir = () => {
     this.setState({
       arttir: this.state.arttir + 1
